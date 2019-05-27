@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  playlist: one
+  album: one
+  votes: 1
+
+two:
+  playlist: two
+  album: two
+  votes: 1
