@@ -19,11 +19,12 @@ class Api::V1::ClassificationsController < ApplicationController
 
 	def create
 		@classification = Classification.create(classParams)
+		render json: @classification
 	end
 
 	private
 
 	def classParams
-		params.require(:classification).permit(:playlist_id, :album_id)
+		params.require(:classification).permit(:playlist_id, :album_id, :votes)
 	end
 end
