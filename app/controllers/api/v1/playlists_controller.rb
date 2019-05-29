@@ -7,15 +7,27 @@ class Api::V1::PlaylistsController < ApplicationController
 
 		@playlists.map do |playlist|
 			# @playlistsAndAlbums[playlist.id] = {}
-			@playlistsAndAlbums[playlist.title] = {playlistTitle: playlist.title, playlistID: playlist.id, albums: [playlist.albums]}
-			
+			@playlistsAndAlbums[playlist.title] = {playlistID: playlist.id, playlistTitle: playlist.title, albums: playlist.albums}
+
 		end
-	
+
 		render json: @playlistsAndAlbums
 	end
 
 	def show
 		@playlist = Playlist.find(params[:id])
 		render json: @playlist
+	end
+
+
+	def create
+		@playlist = Playlist.create(playlistParams)
+		render json: @playlist
+	end
+
+	private
+
+	def playlistParams
+		params.require(:playlist).permit(:title)
 	end
 end

@@ -1,10 +1,9 @@
 class Api::V1::ClassificationsController < ApplicationController
-	def index
 
+	def index
 		@classifications = Classification.all
 		@playlists = []
 		@playlistsAndAlbums = {}
-		# byebug
 		@classifications.each do |classification|
 			@playlistsAndAlbums[classification.playlist] = classification.album
 		end
@@ -14,8 +13,17 @@ class Api::V1::ClassificationsController < ApplicationController
 
 	end
 
-
 	def show
 		@classification = Classification.find(params[:id])
+	end
+
+	def create
+		@classification = Classification.create(classParams)
+	end
+
+	private
+
+	def classParams
+		params.require(:classification).permit(:playlist_id, :album_id)
 	end
 end
