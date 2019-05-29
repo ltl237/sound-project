@@ -14,6 +14,7 @@ class Api::V1::AlbumsController < ApplicationController
 
 	def create
 		@album = Album.create(albumParams)
+		# find_or_create_by(:title)
 		render json: @album
 	end
 
