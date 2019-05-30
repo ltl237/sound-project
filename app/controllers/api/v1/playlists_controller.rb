@@ -5,13 +5,13 @@ class Api::V1::PlaylistsController < ApplicationController
 		@classifications = Classification.all
 		@playlistsAndAlbums = {}
 
-		@playlists.map do |playlist|
+		# @playlists.map do |playlist|
 			# @playlistsAndAlbums[playlist.id] = {}
-			@playlistsAndAlbums[playlist.title] = {playlistID: playlist.id, playlistTitle: playlist.title, albums: playlist.albums}
+			# @playlistsAndAlbums[playlist.title] = {playlistID: playlist.id, playlistTitle: playlist.title, albums: playlist.albums}
 
-		end
+		# end
 
-		render json: @playlistsAndAlbums
+		render json: @playlists
 	end
 
 	def show
