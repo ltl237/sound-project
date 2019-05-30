@@ -1,6 +1,7 @@
 class Api::V1::AlbumsController < ApplicationController
 	def index
 		@albums = Album.all
+		# byebug
 		render json: @albums
 	end
 
@@ -14,12 +15,13 @@ class Api::V1::AlbumsController < ApplicationController
 
 	def create
 		@album = Album.find_or_create_by(albumParams)
+		byebug
 		render json: @album
 	end
 
 	private
 
 	def albumParams
-		params.require(:album).permit(:title, :artist, :album_image)
+		params.require(:album).permit(:title, :artist, :albumImg)
 	end
 end
