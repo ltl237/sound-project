@@ -3,9 +3,9 @@ class CreateAlbums < ActiveRecord::Migration[5.2]
     create_table :albums do |t|
       t.string :title
       t.string :artist
-      t.string :album_image
+      t.string :albumImg
 
-      t.timestampsalbu
+      t.timestamps
     end
   end
 end

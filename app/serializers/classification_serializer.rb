@@ -1,5 +1,5 @@
 class ClassificationSerializer < ActiveModel::Serializer
   attributes :id, :votes
-  has_one :playlist
-  has_one :album
+  belongs_to :playlist
+  belongs_to :album
 end
